@@ -33,12 +33,31 @@ namespace GradeBook.GradeBooks
             if (averageGrade >= grades[(threshold * 4) - 1])
                 return 'D';
             return 'F';
-
-
         }
 
+        public override void CalculateStatistics()
+        {
+            if(Students.Count >= 5)
+            { 
+            base.CalculateStatistics();
+            }
+            else
+            {
+                Console.WriteLine("Ranked grading requires at least 5 students with grades in order to properly calculate a student's overall grade.");
+            }
+        }
 
-
-
+        public override void CalculateStudentStatistics(string name)
+        {
+            if(Students.Count >=5)
+                    {
+                base.CalculateStudentStatistics(name);
+            }
+            else
+            {
+                Console.WriteLine("Ranked grading requires at least 5 students with grades in order to properly calculate a student's overall grade.");
+            }
+         
+        }
     }
 }
